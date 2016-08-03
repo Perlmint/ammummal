@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}ammummal{% endblock %}
+{% block header %}{% endblock %}
+{% block body %}
+	{% load static %}
+	<div id="home-wrap">
+		<div id="home-header">
+			<h2>이거 왜 만든건지 모르겠음</h2>
+		</div>
+		<hr />
+		<form id="home-form" action="{% url 'web:home' %}" method="post" onsubmit="return onSubmit();">
+			{% csrf_token %}
+			<div class="form-group">
+				<label for="home-content">아무말</label>
+				<textarea id="home-content" class="form-control" rows="10" name="content" placeholder="아무말이나 해보세요">{{ content }}</textarea>
+			</div>
+			<div class="clearfix">
+				<button class="btn btn-default pull-right" type="submit">암움알</button>
+				<p id="home-message" class="text-danger pull-right">{{ message }}</p>
+			</div>
+		</form>
+		{% if not message %}
+			{% if result %}
+				<hr />
+				<div id="home-result">
+					<h4>결과</h4>
+					<p>{{ result | linebreaksbr }}</p>
+				</div>
+			{% endif %}
+		{% endif %}
+		<hr />
+		<div id="home-footer" class="text-right">
+			<p>created by <a href="https://theeluwin.herokuapp.com" target="new">@theeluwin</a></p>
+			<p><a href="https://gist.github.com/theeluwin/7fd1640eb8e7a284dfc038551ee76420" target="new">소스 코드</a></p>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% if site.app.na %}
+	<meta name="naver-site-verification" content="{{ site.app.na }}" />
+{% endif %}
+{% if site.app.fb %}
+	<script>window.fbAsyncInit=function(){FB.init({appId:"{{ site.app.fb }}",xfbml:true,version:"v2.6"});};(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/sdk.js";fjs.parentNode.insertBefore(js,fjs);}(document,"script","facebook-jssdk"));</script>
+{% endif %}
+{% if site.app.ga %}
+	<script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "{{ site.app.ga }}", "auto");ga("send", "pageview");</script>
+{% endif %}
